@@ -1,103 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get well soon! Sending care and love 💊🌸">
-    <title>Get Well Soon 💊</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-icon">
-            <div class="heart-pulse">💊</div>
-        </div>
-        <p>Preparing care package...</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Will you be my Valentine?" />
+    <title>Will You Be My Valentine? ❤️</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Caveat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Splash Overlay (show before question) -->
+    <div id="splashOverlay" class="splash-overlay">
+      <div class="splash-box">
+        <img class="splash-image" src="images/flwrs.jpg" alt="flowers" />
+        <p class="splash-text">
+          I saw how much you love this, so here’s the question baby.😙
+        </p>
+      </div>
     </div>
 
-    <!-- Delivery Animation -->
-    <div class="delivery-section" id="deliverySection">
-        <div class="delivery-container">
-            <div class="delivery-character animate__animated animate__bounceInDown">
-                <img src="images/gif2.gif" alt="Delivery person">
-            </div>
-            <div class="delivery-message">
-                <h2>Special Care Package Delivery! 📦</h2>
-                <p>Someone sent you something special to help you feel better! 💕</p>
-            </div>
-            <button id="acceptDeliveryBtn" class="accept-btn">Accept Delivery</button>
+    <!-- Valentine Question Modal -->
+    <div class="question-modal" id="questionModal">
+      <div class="question-container animate__animated animate__zoomIn">
+        <div class="question-image">
+          <img src="images/cat1.jpg" alt="cute" />
         </div>
-    </div>
-
-    <!-- Name Verification Modal -->
-    <div class="name-modal" id="nameModal">
-        <div class="modal-content animate__animated animate__zoomIn">
-            <div class="modal-header">
-                <h2>Who is this care package for?</h2>
-                <p>Please enter your name to receive it 🌸</p>
-            </div>
-            <div class="input-container">
-                <input type="text" id="nameInput" placeholder="Enter your name...">
-                <span class="input-icon">💕</span>
-            </div>
-            <button id="submitNameBtn" class="submit-btn">Receive Package</button>
+        <h2 class="question-title">Will you be my Valentine? ❤️</h2>
+        <div class="question-buttons">
+          <button id="yesBtn" class="yes-btn">Yes</button>
+          <button id="noBtn" class="no-btn">No</button>
         </div>
+      </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-container" id="mainContainer">
-        <!-- Care Package Box -->
-        <div class="care-package-section" id="carePackageSection">
-            <div class="care-package-box animate__animated animate__bounceIn">
-                <div class="box-lid"></div>
-                <div class="box-body">
-                    <div class="box-label">💊 Care Package 🌸</div>
-                </div>
-                <p class="click-text">Click to open! ✨</p>
-            </div>
+      <!-- Valentine Contents -->
+      <div class="valentine-contents" id="packageContents">
+        <div class="flowers-section">
+          <div class="flower-bouquet" id="flowerBouquet"></div>
         </div>
 
-        <!-- Content After Opening -->
-        <div class="package-contents" id="packageContents">
-            <!-- Flowers Section -->
-            <div class="flowers-section">
-                <h2 class="section-title animate__animated">Flowers to brighten your day! 🌸</h2>
-                <div class="flower-bouquet" id="flowerBouquet"></div>
-            </div>
+        <div class="get-well-message">
+          <div class="message-card">
+            <div class="card-image"></div>
+            <h1></h1>
+          </div>
+        </div>
+      </div>
 
-            <!-- Get Well Message -->
-            <div class="get-well-message animate__animated">
-                <div class="message-card">
-                    <div class="card-image">
-                        <img src="images/gws.jpg" alt="Heart hands">
-                    </div>
-                    <h1>Get well soon baby 💕</h1>
-                </div>
-            </div>
-        </div>
+      <!-- Floating Decorations -->
+      <div class="floating-hearts" id="floatingHearts"></div>
+    </div>
 
-        <!-- Floating Decorations -->
-        <div class="floating-hearts" id="floatingHearts"></div>
+    <!-- Time Picker Modal -->
+    <div class="time-modal" id="timeModal">
+      <div class="time-container animate__animated animate__zoomIn">
+        <h2 class="time-title">Pick a time to meet</h2>
+        <p class="time-sub">
+          Have an AIESEC meetup in the morning from 9 to 12 so let's meet after
+          that okieee
+        </p>
+        <div class="time-list" id="timeList"></div>
+        <div
+          class="extra-time-list"
+          id="extraTimeList"
+          style="display: none; margin-top: 8px"
+        ></div>
 
-        <!-- Corner Decorations -->
-        <div class="corner-deco top-left">
-            <img src="images/image.png" alt="decoration">
+        <h3 class="place-title">Where should we go?</h3>
+        <div class="place-list" id="placeList">
+          <button class="place-btn" data-place="pls pick">pls pick</button>
         </div>
-        <div class="corner-deco top-right">
-            <img src="images/image copy 4.png" alt="decoration">
+        <textarea
+          id="placeOther"
+          class="place-other"
+          placeholder="What's on your mind?"
+          style="display: none"
+        ></textarea>
+        <div
+          class="place-suggestions"
+          id="placeSuggestions"
+          style="display: none; margin-bottom: 8px"
+        ></div>
+
+        <div class="time-actions">
+          <button id="confirmTimeBtn" class="yes-btn">Confirm</button>
         </div>
-        <div class="corner-deco bottom-left">
-            <img src="images/image copy 5.png" alt="decoration">
-        </div>
-        <div class="corner-deco bottom-right">
-            <img src="images/image copy 6.png" alt="decoration">
-        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
